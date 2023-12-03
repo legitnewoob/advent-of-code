@@ -1,4 +1,4 @@
-```#include<bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 int getNumber(int &index, string &s, int number = 0)
@@ -64,4 +64,3 @@ int main()
 
     return 0;
 }
-```
