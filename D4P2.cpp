@@ -86,3 +86,48 @@ int main()
 
     return 0;
 }
+
+
+
+/*
+
+Better sol by queue sirs
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int32_t main()
+{
+    #ifndef ONLINE_JUDGE
+            freopen("input.txt", "r", stdin);
+            freopen("output.txt", "w", stdout);
+        #endif
+
+
+
+    vector<int>answer(1e5, 1); string s; cin >> s; int lines = 0;
+
+    while(cin >> s)
+    {
+        lines++; int same = 0;
+
+        set<string>set;
+
+        while(cin >> s)
+        {
+            if(s == "|") break;
+            else set.insert(s);
+        }
+
+        while(cin >> s)
+        {
+            if(s == "Card") break;
+            else same += set.count(s);
+        }
+
+        for(int i = lines; i < lines + same; i++) answer[i] += answer[lines - 1];
+    }
+
+    cout << accumulate(answer.begin(), answer.begin() + lines, 0ll) << "\n";
+}
+*/
