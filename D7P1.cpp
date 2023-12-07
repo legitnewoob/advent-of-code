@@ -118,3 +118,67 @@ int32_t main()
 
     return 0;
 }
+
+
+
+
+/* Queue
+
+#include<bits/stdc++.h>
+using namespace std;
+
+const string num = "AKQJT98765432";
+
+int main()
+{
+    vector<pair<string,int>>a;
+    string s;
+
+    while(cin >> s)
+    {
+        int x; cin >> x;
+        a.push_back({s, x});
+    }
+
+    sort(a.begin(), a.end(), [&](auto a, auto b)
+    {
+        string s = a.first, t = b.first;
+
+        map<char,int>S, T;
+
+        for(auto &i : s) S[i]++;
+        for(auto &i : t) T[i]++;
+
+        vector<int>ss, tt;
+
+        for(auto &i : S) ss.push_back(i.second);
+        for(auto &i : T) tt.push_back(i.second);
+
+        sort(ss.begin(), ss.end(), greater());
+        sort(tt.begin(), tt.end(), greater());
+
+        for(int i = 0; i < min(ss.size(), tt.size()); i++)
+        {
+            if(ss[i] > tt[i]) return false;
+            if(ss[i] < tt[i]) return true;
+        }
+
+        for(int i = 0; i < s.size(); i++)
+        {
+            int ii = num.find(s[i]), jj = num.find(t[i]);
+            if(ii != jj) return ii > jj;
+        }
+
+        return false;
+    });
+
+    long long answer = 0;
+
+    for(int i = 0; i < a.size(); i++)
+    {
+        answer += (i + 1) * a[i].second;
+    }
+
+    cout << answer << "\n";
+}
+*/
